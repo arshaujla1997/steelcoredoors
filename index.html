@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SteelCore Garage Doors | 24/7 Perth Specialists</title>
+    <style>
+        /* --- DESIGN SYSTEM & BRANDING --- */
+        :root {
+            --brand-main: #111827;     /* Deep Obsidian Charcoal */
+            --brand-accent: #d946ef;   /* Energetic Electric Magenta */
+            --brand-highlight: #f97316;/* Action Orange */
+            --bg-light: #f8fafc;       /* Soft Slate Light Gray */
+            --bg-card: #ffffff;
+            --text-dark: #1e293b;
+            --text-muted: #64748b;
+            --star-gold: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- GLOBAL CONTAINERS & HOOKS --- */
+        .container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        section {
+            padding: 90px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .bg-gray-section {
+            background-color: var(--bg-light);
+        }
+
+        .btn-action {
+            display: inline-block;
+            background-color: var(--brand-highlight);
+            color: white;
+            padding: 14px 32px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-action:hover {
+            background-color: #ea580c;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background-color: var(--brand-main);
+            color: white;
+            padding: 14px 32px;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            border: 1px solid #374151;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-secondary:hover {
+            background-color: #1f2937;
+            transform: translateY(-2px);
+        }
+
+        /* Responsive Image Helper Styling */
+        .responsive-img {
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            display: block;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .parts-card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .section-tag {
+            text-transform: uppercase;
+            color: var(--brand-highlight);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: inline-block;
+        }
+
+        .section-heading {
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            color: var(--brand-main);
+        }
+
+        .section-subheading {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin-bottom: 40px;
+        }
+
+        /* --- SCROLL ANIMATIONS SYSTEM --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.7s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        .reveal.active-animation {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 2000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+        }
+
+        .brand-logo {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--brand-main);
+            letter-spacing: -0.5px;
+            text-transform: uppercase;
+        }
+
+        .brand-logo span {
+            color: var(--brand-highlight);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 14px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+            white-space: nowrap;
+        }
+
+        .nav-links a:hover {
+            color: var(--brand-highlight);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            z-index: 2100;
+            padding: 8px;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background-color: var(--brand-main);
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        /* --- GRIDS & SECTION LAYOUTS --- */
+        
+        /* 1. Hero Layout */
+        .hero-split {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        .hero-statement h1 {
+            font-size: 3rem;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+        .hero-statement p {
+            font-size: 1.15rem;
+            color: #94a3b8;
+            margin-bottom: 32px;
+        }
+
+        /* 2. Feature strip */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px;
+        }
+        .feature-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            text-align: center;
+            font-weight: 700;
+        }
+
+        /* 3. About Split */
+        .about-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        /* 4. Service Grid Layout */
+        .services-layout-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .service-page-card {
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+        .service-page-card ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+        .service-page-card li::before {
+            content: "✓ ";
+            color: var(--brand-highlight);
+        }
+
+        /* 4b. Parts Grid Layout */
+        .parts-layout-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+        .parts-page-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s ease;
+        }
+        .parts-page-card:hover {
+            transform: translateY(-4px);
+        }
+        .parts-page-card h3 {
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            color: var(--brand-main);
+        }
+        .parts-page-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* 5. Process Steps */
+        .process-flow {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+        .step-node {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 8px;
+        }
+        .step-num {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: #cbd5e1;
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        /* 6. Commercial Shutters Grid */
+        .split-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* 7. Service Areas Grid */
+        .suburbs-box-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+        .suburb-card {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid var(--brand-highlight);
+        }
+
+        /* 8. Safety & Care Tips Grid */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .tip-card {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+        .tip-card h3 {
+            color: var(--brand-main);
+            margin-bottom: 12px;
+        }
+
+        /* 9. FAQ Component */
+        .faq-container {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            margin-bottom: 14px;
+            padding: 20px;
+        }
+        .faq-question {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--brand-main);
+            margin-bottom: 8px;
+        }
+        .faq-answer {
+            color: var(--text-muted);
+        }
+
+        /* 10. Testimonials Wall (10 items) */
+        .reviews-masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+        .review-card {
+            background: var(--bg-light);
+            padding: 24px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+        }
+        .review-head {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .stars {
+            color: var(--star-gold);
+            margin-bottom: 8px;
+        }
+
+        /* 11. Contact Form Split */
+        .form-split {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+        }
+        .form-box {
+            background: var(--bg-light);
+            padding: 35px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+        }
+        .field-group {
+            margin-bottom: 16px;
+        }
+        .field-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+        .field-group input, .field-group select, .field-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            background: white;
+        }
+
+        /* --- MAP SECTION --- */
+        .map-section {
+            padding: 0;
+            line-height: 0;
+            border-bottom: none;
+        }
+        .map-section iframe {
+            width: 100%;
+            height: 400px;
+            border: 0;
+        }
+
+        /* Custom styling for embedded right-side form map */
+        .form-map-container {
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 280px;
+            background: white;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .form-map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- SMARTPHONE MEDIA QUERIES --- */
+        @media (max-width: 1100px) {
+            .hamburger {
+                display: flex;
+            }
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 300px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                padding: 100px 30px;
+                box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+                transition: right 0.4s ease;
+                gap: 20px;
+                display: flex;
+                overflow-y: auto;
+            }
+            .nav-links.mobile-open {
+                right: 0;
+            }
+            .hamburger.toggle-active span:nth-child(1) {
+                transform: rotate(45deg) translate(6px, 6px);
+            }
+            .hamburger.toggle-active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.toggle-active span:nth-child(3) {
+                transform: rotate(-45deg) translate(6px, -6px);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-split, .about-split, .split-showcase, .form-split {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+            .hero-statement h1 {
+                font-size: 2.2rem;
+            }
+            .map-section iframe {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="brand-logo">SteelCore <span>Doors</span></div>
+            
+            <button class="hamburger" id="hamburger-btn" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-links" id="nav-overlay">
+                <li><a href="#hero-page">Home</a></li>
+                <li><a href="#about-page">About</a></li>
+                <li><a href="#services-page">Services</a></li>
+                <li><a href="#parts-page">Garage Parts</a></li>
+                <li><a href="#process-page">Process</a></li>
+                <li><a href="#commercial-page">Commercial</a></li>
+                <li><a href="#areas-page">Areas</a></li>
+                <li><a href="#tips-page">Safety Tips</a></li>
+                <li><a href="#faq-page">FAQ</a></li>
+                <li><a href="#reviews-page">Reviews</a></li>
+                <li><a href="#contact-page">Free Quote</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main id="hero-page" style="background-color: var(--brand-main); color: white; padding: 90px 0;">
+        <div class="container hero-split">
+            <div class="hero-statement">
+                <h1>24/7 Premium Garage Door Repairs & Framework</h1>
+                <p>Fast, affordable, and certified technical responses throughout Perth. We fix broken tracking, faulty motors, and snaps immediately.</p>
+                <a href="#contact-page" class="btn-action">Request Prompt Dispatch</a>
+            </div>
+            <div>
+                <img src="mainhero.png" alt="Main Architectural Garage Space" class="responsive-img">
+            </div>
+        </div>
+    </main>
+
+    <section id="trust-page" class="bg-gray-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">✓ Fully Insured Operators</div>
+                <div class="feature-item">✓ Real 24/7 Availability</div>
+                <div class="feature-item">✓ Fixed Clear Pricing</div>
+                <div class="feature-item">✓ Top-Grade Steel Parts</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about-page" class="reveal">
+        <div class="container about-split">
+            <div>
+                <span class="section-tag">Who We Are</span>
+                <h2 class="section-heading">Your Dependable Local Entryway Engineers</h2>
+                <p style="margin-bottom: 16px; color: var(--text-dark);">At SteelCore Garage Doors, we treat security vulnerabilities with high urgency. A jammed entryway isn’t just slow—it leaves your assets exposed.</p>
+                <p style="color: var(--text-muted); margin-bottom: 24px;">Our operators travel in fully loaded mobile workshops, ensuring most system spring sets, remote receptors, and cable arrays are updated on the spot during our visit.</p>
+                <a href="#process-page" class="btn-action">How We Operate</a>
+            </div>
+            <div>
+                <img src="worker.png" alt="SteelCore Technician At Work" class="responsive-img">
+            </div>
+        </div>
+    </section>
+
+    <section id="services-page" class="bg-gray-section reveal">
+        <div class="container">
+            <span class="section-tag">Capabilities</span>
+            <h2 class="section-heading">Residential Infrastructure Support</h2>
+            <p class="section-subheading">Our operators systematically isolate mechanical errors to safeguard your garage openings.</p>
+            
+            <div class="services-layout-grid">
+                <div class="service-page-card">
+                    <img src="springs.png" alt="Spring and Cable Restorations" class="responsive-img" style="margin-bottom: 15px;">
+                    <h3>Spring & Cable Restorations</h3>
+                    <ul>
+                        <li>High-Tension Torsion Springs</li>
+                        <li>Heavy-Duty Snapped Wire Replaced</li>
+                        <li>Durable Counter-Balance Sets</li>
+                    </ul>
+                </div>
+                <div class="service-page-card">
+                    <img src="automatic.png" alt="Automatic Smart Door Motor" class="responsive-img" style="margin-bottom: 15px;">
+                    <h3>Smart Motor Automations</h3>
+                    <ul>
+                        <li>Drive Motor Chain Conversions</li>
+                        <li>Safe Smartphone Integrations</li>
+                        <li>Wireless Keypads & Encrypted Fobs</li>
+                    </ul>
+                </div>
+                <div class="service-page-card">
+                    <img src="nylon.png" alt="Track Alignment Rollers" class="responsive-img" style="margin-bottom: 15px;">
+                    <h3>Track Alignments</h3>
+                    <ul>
+                        <li>Off-Track Framework Resetting</li>
+                        <li>High-Durability Nylon Roller Swaps</li>
+                        <li>Silent Structural Operations</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="parts-page" class="reveal">
+        <div class="container">
+            <span class="section-tag">Premium Inventory</span>
+            <h2 class="section-heading">We Sell Premium Garage Door Parts</h2>
+            <p class="section-subheading">We supply robust, trade-certified replacement components to restore safe configuration balance and operation.</p>
+            
+            <div class="parts-layout-grid">
+                <div class="parts-page-card">
+                    <img src="springs.png" alt="Torsion and Extension Springs" class="parts-card-img">
+                    <h3>Torsion & Extension Springs</h3>
+                    <p>Engineered to perfectly offset heavy door weight, minimizing tension load on your automated opener mechanisms while ensuring a fluid lift balance.</p>
+                </div>
+                <div class="parts-page-card">
+                    <img src="cables.png" alt="Heavy-Duty Cables" class="parts-card-img">
+                    <h3>Heavy-Duty Cables</h3>
+                    <p>Aircraft-grade structural wires built to handle immediate heavy load tracking, eliminating dangerous drops or lopsided movement.</p>
+                </div>
+                <div class="parts-page-card">
+                    <img src="guidetacks.png" alt="Guide Tracks" class="parts-card-img">
+                    <h3>Guide Tracks</h3>
+                    <p>Precision-molded galvanized steel tracks that provide a reliable path for seamless panel sliding without dangerous derailing faults.</p>
+                </div>
+                <div class="parts-page-card">
+                    <img src="hinges.png" alt="Structural Hinges" class="parts-card-img">
+                    <h3>Structural Hinges</h3>
+                    <p>Heavy-gauge connecting brackets that safely allow segmented panels to flex smoothly through sharp header turns without locking up.</p>
+                </div>
+                <div class="parts-page-card">
+                    <img src="safetysensors.png" alt="Electronic Safety Sensors" class="parts-card-img">
+                    <h3>Electronic Safety Sensors</h3>
+                    <p>Infrared photo-eye detection beams that dynamically reverse downward paths to keep family members, vehicles, and pets fully secure.</p>
+                </div>
+                <div class="parts-page-card">
+                    <img src="quiterollers.png" alt="Quiet Rollers" class="parts-card-img">
+                    <h3>Quiet Rollers</h3>
+                    <p>Industrial-sealed bearing rollers built to slide through metal tracking paths smoothly while dramatically cutting down operational vibration noises.</p>
+                </div>
+                <div class="parts-page-card">
+                    <img src="stripping.png" alt="Insulated Weatherstripping" class="parts-card-img">
+                    <h3>Insulated Weatherstripping</h3>
+                    <p>Flexible perimeter rubber seals made to keep outdoor elements, pooling rainwater, and drafty winds completely outside your garage enclosure.</p>
+                </div>
+                <div class="parts-page-card">
+                    <img src="remotes.png" alt="Encrypted Remotes" class="parts-card-img">
+                    <h3>Encrypted Remotes</h3>
+                    <p>Multi-frequency digital controllers providing prompt long-distance entry access paired with high-grade rolling code encryption systems.</p>
+                </div>
+                <div class="parts-page-card">
+                    <img src="panels.png" alt="Replacement Panels" class="parts-card-img">
+                    <h3>Replacement Panels</h3>
+                    <p>Rugged exterior section segments built to stand up against direct impacts and localized weather elements while preserving aesthetic architecture.</p>
+                </div>
+                <div class="parts-page-card">
+                    <img src="brushseal.png" alt="Heavy Brush Seals" class="parts-card-img">
+                    <h3>Heavy Brush Seals</h3>
+                    <p>Durable dense-bristle barrier sweeps meticulously installed around perimeter gaps to seal out nesting bugs, creeping pests, and fine blowing sand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process-page" class="bg-gray-section reveal">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-tag">Workflows</span>
+                <h2 class="section-heading">Our Smooth 4-Step Process</h2>
+            </div>
+            <div class="process-flow">
+                <div class="step-node">
+                    <div class="step-num">01</div>
+                    <h4>Request Call</h4>
+                    <p style="color: var(--text-muted); font-size:0.9rem;">Submit parameters online or call us directly.</p>
+                </div>
+                <div class="step-node">
+                    <div class="step-num">02</div>
+                    <h4>On-Site Audit</h4>
+                    <p style="color: var(--text-muted); font-size:0.9rem;">We inspect all components for any wear and tear.</p>
+                </div>
+                <div class="step-node">
+                    <div class="step-num">03</div>
+                    <h4>Fixed Quote</h4>
+                    <p style="color: var(--text-muted); font-size:0.9rem;">Get a transparent quote before any work starts.</p>
+                </div>
+                <div class="step-node">
+                    <div class="step-num">04</div>
+                    <h4>System Fixed</h4>
+                    <p style="color: var(--text-muted); font-size:0.9rem;">We complete the repair and run a full safety test.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="commercial-page" class="reveal">
+        <div class="container split-showcase">
+            <div>
+                <img src="rollers.png" alt="Commercial Roller Shutters Framework" class="responsive-img">
+            </div>
+            <div>
+                <span class="section-tag">Industrial Operations</span>
+                <h2 class="section-heading">Commercial Roller Shutters</h2>
+                <p style="color: var(--text-muted); margin-bottom: 20px;">We keep your business moving. Our commercial division manages heavy industrial shutters, storefront arrays, and secure warehouse openings.</p>
+                <ul style="list-style:none; margin-bottom:25px;">
+                    <li style="margin-bottom:8px;"><strong>•</strong> Emergency lockouts & motor failures</li>
+                    <li style="margin-bottom:8px;"><strong>•</strong> Planned preventative site maintenance</li>
+                    <li style="margin-bottom:8px;"><strong>•</strong> Fast compliance safety certifications</li>
+                </ul>
+                <a href="#contact-page" class="btn-action">Commercial Service Call</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="areas-page" class="bg-gray-section reveal">
+        <div class="container">
+            <span class="section-tag">Locations</span>
+            <h2 class="section-heading">Our Service Regions Across Perth</h2>
+            <p class="section-subheading">Our mobile units are strategically positioned across all major metropolitan suburbs for fast responses.</p>
+            
+            <div class="suburbs-box-grid">
+                <div class="suburb-card">
+                    <h4>North Perth Suburbs</h4>
+                    <p style="font-size:0.9rem; color:var(--text-muted);">Alkimos, Joondalup, Wanneroo, Butler, Clarkson, Yanchep</p>
+                </div>
+                <div class="suburb-card">
+                    <h4>South Perth Suburbs</h4>
+                    <p style="font-size:0.9rem; color:var(--text-muted);">Rockingham, Baldivis, Kwinana, Success, Cockburn, Fremantle</p>
+                </div>
+                <div class="suburb-card">
+                    <h4>Metro & East Suburbs</h4>
+                    <p style="font-size:0.9rem; color:var(--text-muted);">Perth CBD, Midland, Canning Vale, Armadale, Kelmscott</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tips-page" class="reveal">
+        <div class="container">
+            <span class="section-tag">Expert Diagnostics</span>
+            <h2 class="section-heading">Safety & Preventative Upkeep</h2>
+            <p class="section-subheading">Avoid expensive long-term tracking failures with these basic baseline structural checks.</p>
+            
+            <div class="tips-grid">
+                <div class="tip-card">
+                    <h3>1. Lubricate Moving Tracks</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Apply premium silicone spray to rollers, hinge joints, and spring components twice a year to keep movement completely friction-free.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>2. Clear Tracking Debris</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Ensure the physical side tracks remain clear of dirt or rust blockages, preventing panels from slipping off alignment unexpectedly.</p>
+                </div>
+                <div class="tip-card">
+                    <h3>3. Test Balance Regularly</h3>
+                    <p style="color: var(--text-muted); font-size: 0.95rem;">Pull the manual release cord and raise the door halfway. If it fails to hold its position, your tension springs require professional calibration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq-page" class="bg-gray-section reveal">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 50px;">
+                <span class="section-tag">Inquiries</span>
+                <h2 class="section-heading">Frequently Asked Questions</h2>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">How fast can a technician arrive for an emergency?</div>
+                    <div class="faq-answer">Our mobile emergency teams are stationed across Perth and generally respond to urgent blockages or spring snaps within 45 to 60 minutes.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Should I replace my garage springs myself?</div>
+                    <div class="faq-answer">No. Garage torsion assemblies operate under intense structural tension and can cause severe property damage or injury without proper tools. Always leave this to certified technicians.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Do your repairs come with a service warranty?</div>
+                    <div class="faq-answer">Yes, absolutely. All our premium grade parts, steel cables, and replacement automatic drive motors feature structured operational warranties.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews-page" class="reveal">
+        <div class="container">
+            <span class="section-tag">Testimonials</span>
+            <h2 class="section-heading">10 Genuine Customer Reviews</h2>
+            <p class="section-subheading">Read feedback directly from local homeowners and business managers regarding our prompt service.</p>
+            
+            <div class="reviews-masonry">
+                <div class="review-card">
+                    <div class="review-head"><span>Marcus L. (Joondalup)</span></div>
+                    <div class="stars">★★★★★</div>
+                    <p style="font-size:0.9rem; font-style:italic;">"Our torsion spring snapped at 11 PM. SteelCore arrived within 45 minutes and fixed it safely. Exceptional service."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-head"><span>Sarah D. (Fremantle)</span></div>
+                    <div class="stars">★★★★☆ <span style="font-size:0.8rem; color:var(--text-muted);">4.5 Stars</span></div>
+                    <p style="font-size:0.9rem; font-style:italic;">"Very straightforward quoting and tidy cleanup. Arrived slightly outside the initial window but the work was flawless."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-head"><span>David K. (Perth CBD)</span></div>
+                    <div class="stars">★★★★★</div>
+                    <p style="font-size:0.9rem; font-style:italic;">"Managed our commercial shutter repair with zero hassle. Highly recommend them for any local business."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-head"><span>Elena R. (Baldivis)</span></div>
+                    <div class="stars">★★★★★</div>
+                    <p style="font-size:0.9rem; font-style:italic;">"They replaced our noisy old motor with a modern smart system. It runs incredibly quietly now!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-head"><span>Tom H. (Clarkson)</span></div>
+                    <div class="stars">★★★★☆ <span style="font-size:0.8rem; color:var(--text-muted);">4.5 Stars</span></div>
+                    <p style="font-size:0.9rem; font-style:italic;">"The technician was very professional and explained everything clearly. Fair prices for premium-quality springs."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-head"><span>Chloe M. (Success)</span></div>
+                    <div class="stars">★★★★★</div>
+                    <p style="font-size:0.9rem; font-style:italic;">"Fantastic response time when our door got stuck halfway open. Super friendly and fast service."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-head"><span>James P. (Midland)</span></div>
+                    <div class="stars">★★★★★</div>
+                    <p style="font-size:0.9rem; font-style:italic;">"Honest, flat rates with no hidden fees. They fixed our loose cables quickly and easily."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-head"><span>Rachel W. (Rockingham)</span></div>
+                    <div class="stars">★★★★☆ <span style="font-size:0.8rem; color:var(--text-muted);">4.5 Stars</span></div>
+                    <p style="font-size:0.9rem; font-style:italic;">"They carried out our annual safety service. The door runs smoothly now. Appreciated the helpful upkeep tips!"</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-head"><span>Graeme B. (Canning Vale)</span></div>
+                    <div class="stars">★★★★★</div>
+                    <p style="font-size:0.9rem; font-style:italic;">"Excellent communication from start to finish. They arrived right on time and sorted our alignment issue."</p>
+                </div>
+                <div class="review-card">
+                    <div class="review-head"><span>Nadia V. (Alkimos)</span></div>
+                    <div class="stars">★★★★★</div>
+                    <p style="font-size:0.9rem; font-style:italic;">"Professional service all around. They handled our insurance repair paperwork quickly and easily."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-page" class="bg-gray-section reveal">
+        <div class="container form-split">
+            <div>
+                <span class="section-tag">Booking Request</span>
+                <h2 class="section-heading">Get A Free Fixed Quote</h2>
+                
+                <form class="form-box" onsubmit="handleFormSubmission(event)">
+                    <div class="field-group">
+                        <label>Your Full Name</label>
+                        <input type="text" id="form-name" required placeholder="John Citizen">
+                    </div>
+                    <div class="field-group">
+                        <label>Phone Number</label>
+                        <input type="tel" id="form-phone" required placeholder="0401 077 689">
+                    </div>
+                    <div class="field-group">
+                        <label>Property Suburb Location</label>
+                        <input type="text" id="form-suburb" required placeholder="Perth, WA">
+                    </div>
+                    <div class="field-group">
+                        <label>Required Service Option</label>
+                        <select id="form-service">
+                            <option>Emergency Breakdown Repair</option>
+                            <option>Drive Motor Automation Upgrade</option>
+                            <option>Full Maintenance Safety Audit</option>
+                            <option>New Profile Design Quote</option>
+                        </select>
+                    </div>
+                    <div class="field-group">
+                        <label>Briefly Describe the Structural Problem</label>
+                        <textarea id="form-message" rows="4" placeholder="Tracking issues, loud noises, unaligned panels, etc..."></textarea>
+                    </div>
+                    <div class="field-group">
+                        <label>Attach Picture of Damage (Optional)</label>
+                        <input type="file" id="form-file" accept="image/*">
+                        <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 6px; font-style: italic;">Please attach a picture of your damage so we can provide you best quote.</p>
+                    </div>
+                    
+                    <button type="submit" name="submit-channel" value="whatsapp" class="btn-action" style="width: 100%; margin-bottom: 12px;">Submit Details & Send on WhatsApp</button>
+                    <button type="submit" name="submit-channel" value="email" class="btn-secondary" style="width: 100%;">Submit Details & Send via Email</button>
+                </form>
+            </div>
+
+            <div style="display: flex; flex-direction: column; justify-content: flex-start; gap: 30px;">
+                <div class="form-box" style="border-left: 5px solid var(--brand-highlight); background:white;">
+                    <h3>Direct Emergency Dispatch</h3>
+                    <p style="margin: 10px 0;">Need a technician right away? Call our emergency line:</p>
+                    <a href="tel:0401077689" style="font-size: 1.6rem; font-weight: 800; color: var(--brand-highlight); text-decoration: none;">0401 077 689</a>
+                </div>
+                <div class="form-box" style="background:white;">
+                    <h4>Corporate Ledger Information</h4>
+                    <p style="margin-top:10px; font-size:0.9rem; color:var(--text-muted);">
+                        <strong>Email:</strong> steelcoregaragedoors@gmail.com<br>
+                        <strong>ABN:</strong> 12356099180<br>
+                        <strong>Operation Hours:</strong> 24 Hours / 7 Days Continuous
+                    </p>
+                </div>
+                
+                <div class="form-map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3377.729906471676!2d116.00344439999999!3d-32.1219167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a32bd39207e46ab%3A0xeab301ffb0e6dfb4!2sKelmscott%20WA%206111%2C%20Australia!5e0!3m2!1sen!2sin!4v1719945000000!5m2!1sen!2sin" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="map-location" class="map-section reveal">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3377.729906471676!2d116.00344439999999!3d-32.1219167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2a32bd39207e46ab%3A0xeab301ffb0e6dfb4!2sKelmscott%20WA%206111%2C%20Australia!5e0!3m2!1sen!2sin!4v1719945000000!5m2!1sen!2sin" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </section>
+
+    <footer style="background: var(--brand-main); color: #64748b; padding: 40px 0; text-align: center; font-size: 0.9rem;">
+        <div class="container">
+            <p>© 2026 SteelCore Garage Doors Perth. All Rights Reserved. | ABN 12356099180</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- MOBILE MENU HAMBURGER NAVIGATION ---
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const navOverlay = document.getElementById('nav-overlay');
+        const overlayLinks = document.querySelectorAll('#nav-overlay a');
+
+        function toggleMenu() {
+            hamburgerBtn.classList.toggle('toggle-active');
+            navOverlay.classList.toggle('mobile-open');
+        }
+
+        hamburgerBtn.addEventListener('click', toggleMenu);
+
+        // Auto-close menu drawer when a link is clicked on mobile views
+        overlayLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(navOverlay.classList.contains('mobile-open')) {
+                    toggleMenu();
+                }
+            });
+        });
+
+        // --- SCROLL ANIMATIONS DISPATCH ENGINE ---
+        function checkScrollVisibility() {
+            const reveals = document.querySelectorAll('.reveal');
+            const activationPoint = window.innerHeight * 0.88;
+
+            reveals.forEach(block => {
+                const distanceTop = block.getBoundingClientRect().top;
+                if(distanceTop < activationPoint) {
+                    block.classList.add('active-animation');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkScrollVisibility);
+        window.addEventListener('DOMContentLoaded', checkScrollVisibility);
+
+        // --- FORM DATA ROUTING ENGINE (WHATSAPP OR EMAIL) ---
+        function handleFormSubmission(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('form-name').value;
+            const phone = document.getElementById('form-phone').value;
+            const suburb = document.getElementById('form-suburb').value;
+            const service = document.getElementById('form-service').value;
+            const problemDescription = document.getElementById('form-message').value;
+            const fileInput = document.getElementById('form-file');
+
+            let picNotice = "";
+            if (fileInput && fileInput.files.length > 0) {
+                picNotice = `\n[Note: Customer has selected a picture to attach. Please ask them to send it now.]`;
+            }
+
+            // Standard Auto-Ready Message Formula
+            const messageText = `Hello SteelCore Garage Doors,\n\nI want to book a service request:\n\n` +
+                                 `• Name: ${name}\n` +
+                                 `• Phone: ${phone}\n` +
+                                 `• Suburb: ${suburb}\n` +
+                                 `• Service Required: ${service}\n` +
+                                 `• Description: ${problemDescription}${picNotice}`;
+
+            // Check which button submitted the form
+            const selectedChannel = e.submitter ? e.submitter.value : 'whatsapp';
+
+            if (selectedChannel === 'email') {
+                const subjectLine = `New Service Booking Request from ${name}`;
+                const mailtoUrl = `mailto:steelcoregaragedoors@gmail.com?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(messageText)}`;
+                window.location.href = mailtoUrl;
+            } else {
+                const encodedMessage = encodeURIComponent(messageText);
+                const whatsappNumber = "61401077689"; 
+                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+                window.open(whatsappUrl, '_blank');
+            }
+
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
